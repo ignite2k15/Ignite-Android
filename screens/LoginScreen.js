@@ -51,10 +51,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonContainer: {
-    marginTop: 20,
+    marginTop: 20, // Add margin top
   },
   button: {
-    marginBottom: 10, // Add margin bottom for spacing between buttons
+    marginVertical: 10, // Add margin vertical
+    padding: 10, // Add padding
   },
 });
 
