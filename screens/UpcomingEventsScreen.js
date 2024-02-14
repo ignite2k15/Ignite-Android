@@ -37,7 +37,6 @@ const UpcomingEventsScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 12,
     flex: 1,
     padding: 20,
     backgroundColor: '#f5f5f5', // Light gray background
