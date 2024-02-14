@@ -1,10 +1,10 @@
 // App.js
 import React from 'react';
-import AppNavigator from './navigation/AppNavigator';
-import LoginScreen from './screens/LoginScreen';
+import AboutCollegeScreen from './screens/AboutCollegeScreen';
+import AppNavigator from './screens/AppNavigator';
 
 const App = () => {
-  return <LoginScreen/>
+  return <AppNavigator/>
 };
 
 export default App;
