@@ -1,39 +1,57 @@
-// screens/LoginScreen.js
-import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
-import { loginScreenStyles } from '../styles/LoginScreenStyles';
+// LoginScreen.js
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
 const LoginScreen = ({ navigation }) => {
-  const handleLogin = (role) => {
-    // Navigate to respective screens based on the role selected
-    switch (role) {
-      case 'student':
-        navigation.navigate('StudentScreen');
-        break;
-      case 'guest':
-        navigation.navigate('GuestScreen');
-        break;
-      case 'teacher':
-        navigation.navigate('TeacherScreen');
-        break;
-      default:
-        break;
-    }
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = () => {
+    // Perform authentication logic here, e.g., send credentials to a server
+
+    // For demonstration purposes, just navigate to another screen
+    navigation.navigate('Home');
+  };
+
+  const handleForgotPassword = () => {
+    // Implement forgot password logic (e.g., navigate to a forgot password screen)
+    console.log('Forgot Password pressed');
+  };
+
+  const handleCreateAccount = () => {
+    // Implement create account logic (e.g., navigate to a registration screen)
+    console.log('Create Account pressed');
   };
 
   return (
-    <View style={loginScreenStyles.container}>
-      <Text style={loginScreenStyles.title}>Choose Login Option:</Text>
-      <View style={styles.buttonContainer}>
-        <View style={styles.button}>
-          <Button title="Login as Student" onPress={() => handleLogin('student')} />
-        </View>
-        <View style={styles.button}>
-          <Button title="Login as Guest" onPress={() => handleLogin('guest')} />
-        </View>
-        <View style={styles.button}>
-          <Button title="Login as Teacher" onPress={() => handleLogin('teacher')} />
-        </View>
+    <View style={styles.container}>
+      <Text style={styles.title}>Login</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        onChangeText={(text) => setEmail(text)}
+        value={email}
+        keyboardType="email-address"
+        autoCapitalize="none"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        onChangeText={(text) => setPassword(text)}
+        value={password}
+        secureTextEntry
+      />
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={handleForgotPassword}>
+        <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+      </TouchableOpacity>
+      <View style={styles.createAccountContainer}>
+        <Text style={styles.createAccountText}>Don't have an account?</Text>
+        <TouchableOpacity onPress={handleCreateAccount}>
+          <Text style={[styles.createAccountText, styles.createAccountButton]}>Create Account</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -44,18 +62,52 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    padding: 20,
+    backgroundColor: 'black',
   },
   title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 24,
     marginBottom: 20,
+    color: 'white',
   },
-  buttonContainer: {
-    marginTop: 20, // Add margin top
+  input: {
+    height: 40,
+    borderColor: 'white',
+    borderWidth: 1,
+    marginBottom: 15,
+    padding: 10,
+    width: '100%',
+    color: 'white',
   },
   button: {
-    marginVertical: 10, // Add margin vertical
-    padding: 10, // Add padding
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+    width: '100%',
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+  },
+  forgotPasswordText: {
+    color: 'blue',
+    marginTop: 10,
+    color: 'white',
+  },
+  createAccountContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  createAccountText: {
+    color: 'white',
+    marginRight: 5,
+  },
+  createAccountButton: {
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
   },
 });
 
