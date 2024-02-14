@@ -34,8 +34,8 @@ const FeedScreen = ({ navigation }) => {
   );
 
   const handleEventPress = (event) => {
-    // Handle event press event, e.g., navigate to event details
-    console.log(`Pressed on event: ${event.eventHeading}`);
+    // Navigate to event details screen, passing event data
+    navigation.navigate('EventDetails', { event });
   };
 
   return (
@@ -65,17 +65,20 @@ const styles = StyleSheet.create({
   },
   flatList: {
     width: '100%',
+    marginTop: 10, // Add margin to the top for spacing
   },
   card: {
     backgroundColor: 'white',
     padding: 20,
     marginBottom: 15,
     borderRadius: 10,
-    elevation: 3, // Add elevation for a card-like effect on Android
-    shadowColor: '#000', // Shadow color for iOS
-    shadowOffset: { width: 0, height: 2 }, // Shadow offset for iOS
-    shadowOpacity: 0.2, // Shadow opacity for iOS
-    shadowRadius: 4, // Shadow radius for iOS
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    borderWidth: 1,
+    borderColor: '#ddd', // Add border for a cleaner look
   },
   eventHeading: {
     fontSize: 18,
