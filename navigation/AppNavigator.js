@@ -4,6 +4,7 @@ import LoginScreen from '../screens/LoginScreen';
 import StudentScreen from '../screens/StudentScreen';
 import GuestScreen from '../screens/GuestScreen';
 import TeacherScreen from '../screens/TeacherScreen';
+import EntryScreen from '../screens/EntryScreen';  // Import your EntryScreen
 import React from 'react';
 
 const Stack = createStackNavigator();
@@ -11,7 +12,8 @@ const Stack = createStackNavigator();
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Entry">
+        <Stack.Screen name="Entry" component={EntryScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="StudentScreen" component={StudentScreen} />
         <Stack.Screen name="GuestScreen" component={GuestScreen} />
